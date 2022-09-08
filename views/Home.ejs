@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>AIEN18 第一組期末專題</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <meta name="theme-color" content="#255477">
+
+  <link href="http://localhost:3000/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://localhost:3000/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="http://localhost:3000/css/css.css" rel="stylesheet">
+  <link href="http://localhost:3000/css/styles.min.css" rel="stylesheet">
+  <link rel="icon" sizes="512x512" href="http://localhost:3000/assets/image/icon.png">
+
+  <style></style>
+</head>
+
+<body role="document">
+
+  <nav class="navbar navbar-inverse navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand hidden-lg hidden-md hidden-sm" href="http://localhost:3000">AIEN18 第一組期末專題</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="http://localhost:3000">Home</a>
+          </li>
+
+
+          <li class="">
+            <a href="http://localhost:3000/Home/Demo_uploadOrigin">Demo</a>
+          </li>
+
+
+          <li class="">
+            <a href="http://localhost:3000/Home/Demo_refSource">Reference source</a>
+          </li>
+
+
+          <li class="">
+            <a href="http://localhost:3000/Home/Demo_members">Members</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="app-box">
+    <div class="page-header" id="app-title">
+      <h1>CaptchAI - OCR圖像判別</h1>
+      <div class="app-description">
+        AIEN18 第一組期末專題
+      </div>
+
+      <!-- <form class="form-horizontal hidden-xs" id="app-search-form" role="search" method="get"
+        action="https://danielmg.org/search">
+        <div class="input-group input-block">
+          <input type="text" class="form-control" placeholder="Search posts within the blog" name="query">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          </div>
+        </div>
+      </form> -->
+    </div>
+    <div class="container-fluid app-container">
+
+
+      <div class="row">
+        <div class="col-md-8">
+
+          <ul class="media-list app-post-list">
+            <li class="media" style="border-left-color: #038728">
+
+              <div class="media-left">
+                <img class="media-object" style="width: 170px;" src="http://localhost:3000/assets/image/Home.png"
+                  alt="CaptchAI - OCR圖像判別 Logo">
+                </a>
+              </div>
+
+              <div class="media-body">
+                <h2 class="media-heading" style="color: black;">
+                  主題簡介
+                </h2>
+                <p>
+                <p>1. Captcha是什麼？</p>
+                <p>2. 為何要做captcha圖像判別？</p>
+                <p>3. 目標：透過深度學習影像辨識的技巧，提高電腦辨別captcha的正確率。</p>
+                </p>
+              </div>
+            </li>
+            <li class="media" style="border-left-color: #1d4efa">
+
+              <div class="media-left">
+                <img class="media-object" src="http://localhost:3000/assets/image/Kaggle_logo.png" alt="Kaggle_logo"
+                  style="width: 170px;">
+                </a>
+              </div>
+
+              <div class="media-body">
+                <h2 class="media-heading" style="color: black;">
+                  資料來源與預處理
+                </h2>
+                <p>
+                <p>
+                  <a href="https://www.kaggle.com/code/shawon10/captcha-recognition/data">1. 來源model使用的dataset</a>
+                </p>
+                <p>2. 爬蟲抓取網站captcha:
+                  <a href="https://udndata.com/ndapp/Index">聯合知識庫</a>
+                  <a href="https://www.sanmin.com.tw/Member/Login/?ReturnUrl=%2fmember%2findex">三民網路書店</a>
+                </p>
+                </p>
+              </div>
+            </li>
+            <li class="media" style="border-left-color: goldenrod">
+
+              <div class="media-left">
+                <img class="media-object" src="http://localhost:3000/assets/image/Keras_logo.png" alt="Keras_logo"
+                  style="width: 170px;">
+                </a>
+              </div>
+
+              <div class="media-body">
+                <h2 class="media-heading" style="color: black;">
+                  Model Structure
+                  </a>
+                </h2>
+                <p>
+                <p>
+                  <a href="https://keras.io/examples/vision/captcha_ocr/">1. OCR model for reading Captchas</a>
+                </p>
+                <p>
+                  <a href="https://www.kaggle.com/code/shawon10/captcha-recognition/notebook">2. 使用的模型來源</a>
+                </p>
+                <p>3. 主要使用CNN</p>
+                </p>
+              </div>
+            </li>
+
+          </ul>
+
+
+        </div>
+
+
+        <div class="col-md-4 app-sidebar">
+          <div class="panel panel-default panel-red">
+            <div class="panel-heading">
+              我們的目標
+              <!-- <i class="fa fa-envelope"></i> -->
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <!-- <div> -->
+                <!-- <div class="col-xs-2"></div> -->
+                  <!-- <i class="fa fa-linkedin fa-3x"></i> -->
+                <!-- </div> -->
+                <div class="col-xs-12">
+                  <p><strong>
+                    Captcha難度提高，真人輸入正確率下降，我們想透過深度學習影像辨識的技巧，簡化驗證機制，進而提升使用者辨識captcha的正確率。
+                  </strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default panel-blue">
+            <div class="panel-heading">
+               所有程式碼
+              <!-- <i class="fa fa-link"></i> -->
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-2">
+                  <!-- <i class="fa fa-linkedin fa-3x"></i> -->
+                  <img class="media-object" src="http://localhost:3000/assets/image/github icon.png" alt="github icon"
+                  style="width: 50px;">
+                </div>
+                <div class="col-xs-10">
+                  <p>
+                    https://github.com/
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-green panel-tags">
+            <div class="panel-heading">
+              使用的程式語言與其他
+              <!-- <i class="fa fa-tags"></i> -->
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <!-- <div class="col-xs-2"> -->
+                  <!-- <i class="fa fa-linkedin fa-3x"></i> -->
+                <!-- </div> -->
+                <div class="col-xs-12">
+                  <p>
+                    <a href="">Python</a>
+                    <a href="">JavaScript</a>
+                    <a href="">Node.js</a>
+                    <a href="">Kaggle</a>
+                    <a href="">Tensorflow</a>
+                    <a href="">Keras</a>
+                    <a href="">OpenCV</a>
+                    <a href="">Github</a>
+                    <a href="">Bootstrap</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <footer id="footer" class="text-center">
+    <div class="app-footer-container">
+      <p>
+      <p> AIEN18 <a href="http://localhost:3000">Home</a></p>
+      </p>
+
+    </div>
+  </footer>
+
+</html>

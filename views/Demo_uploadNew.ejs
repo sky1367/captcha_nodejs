@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Captcha Recognition Demo</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+        integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="http://localhost:3000/css/bootstrapv4.min.css">
+
+
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-coy.min.css"
+        integrity="sha256-OPRaIzpiEHvHfgydlnA/89k9d55T02hawuzgWygdLls=" crossorigin="anonymous"> -->
+
+    <link rel="stylesheet" href="http://localhost:3000/themes/prism-coy.min.css">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="http://localhost:3000/css/font-awesome.min.css">
+
+
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="https://danielmg.org/assets/demo/uploader/css/jquery.dm-uploader.min.css?v=v10" rel="stylesheet"> -->
+    <link href="http://localhost:3000/css/jquery.dm-uploader.min.css" rel="stylesheet">
+    <!-- <link href="https://danielmg.org/assets/demo/uploader/css/main.css?v=v10" rel="stylesheet"> -->
+    <link href="http://localhost:3000/css/main.css" rel="stylesheet">
+    <link rel="icon" sizes="512x512" href="http://localhost:3000/assets/image/icon.png">
+
+    <!-- <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script> -->
+    <!-- <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-638054-11"></script> -->
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-5">
+        <a class="navbar-brand" href="http://localhost:3000">AIEN18 第一組期末專題</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#demosNavbarCollapse"
+            aria-controls="demosNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="demosNavbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:3000">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://localhost:3000/Home/Demo_uploadOne">Demo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:3000/Home/Demo_refSource">Reference source</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:3000/Home/Demo_members">Members</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" class="container pt-2">
+
+        <h1>
+            Captcha Recognition
+            <a href="" class="btn btn-info btn-lg float-right d-none d-lg-block" role="button" target="_blank">
+                <i class="fa fa-github">程式碼連結</i>
+            </a>
+        </h1>
+        <p class="lead mb-4">
+            An OCR model for reading captcha
+        </p>
+
+        <ul class="nav nav-tabs">
+
+            <li class="nav-item">
+                <a class="nav-link " href="http://localhost:3000/Home/Demo_uploadOrigin">Origin model & training dataset</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="http://localhost:3000/Home/Demo_uploadNew">Origin model & <strong>new</strong> dataset</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " href="http://localhost:3000/Home/Demo_webCrawler">Web Crawler</a>
+            </li>
+
+        </ul>
+
+        <div class="mb-3 dm-uploader" id="drag-and-drop-zone" style="border-color: transparent;">
+            <div class="form-row">
+                <div class="col-md-10 col-sm-12">
+                    <div class="from-group mb-2">
+                        <label>Image Uploader</label>
+                    </div>
+                    <div>
+                        <div role="button" class="btn btn-success mr-2">
+                            <i class="fa fa-folder-o fa-fw"></i> Browse Files
+                            <input id="captchaUrl" type="file" value="Click to add Files">
+                        </div>
+                        <small class="status text-muted">Select a captcha</small>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div role="button" class="btn btn-danger"  style="width: 137px; height: 40px;display: flex; align-items: center; justify-content: center;">
+                            <!-- <i class="fa fa-folder-o fa-fw"></i> Browse Files -->
+                            <input id="upload" type="submit" value="Recognized" class="btn btn-danger" style="text-align: center;">
+                        </div>
+                    </div>
+                </div>
+                <input type="text" id="pyResult0" class="form-control" aria-describedby="fileHelp"
+                    placeholder="Recognizing...">
+                <div class="col-md-2  d-md-block  d-sm-none" style="width: 600px;">
+                    <img id="imageDetected" src="http://localhost:3000/assets/image/noimage.jpg" alt="..."
+                        class="img-thumbnail" style="width: 600px;">
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </main> <!-- /container -->
+
+    <footer class="text-center">
+        <p> AIEN18 <a href="http://localhost:3000">Home</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        var arrayBuffer;
+        document.querySelector("#captchaUrl").addEventListener("change", function () {
+            // 預覽圖片更換
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                arrayBuffer = this.result;
+                var blob = new Blob([arrayBuffer], { type: "image/jpg|jpeg|png|gif" });
+                var urlCreator = window.URL || window.webkitURL;
+                var imageUrl = urlCreator.createObjectURL(blob);
+                console.log(imageUrl)
+                $("#imageDetected").attr("src", imageUrl);
+                fileData = event.target.result;
+            };
+            // 讀取圖的資訊，傳給下面的ajax
+            reader.readAsArrayBuffer(this.files[0])
+            var filereader = new FileReader();
+            filereader.onload = function(event){
+                fileData  = event.target.result;
+            };
+            myFile = $('#captchaUrl').prop('files')[0];
+            // myFile :upload image的資訊
+            // console.log('myfile',myFile)
+            filereader.readAsDataURL(myFile)
+        });
+
+        // upload後的function
+        $(document).ready(function () {
+            $('#upload').click(function () {
+                $.ajax({
+                    method: "post",
+                    url: "/index/Home/Demo_uploadNew",
+                    dataType: "JSON",
+                    data: { 'filename': myFile.name, 'file': fileData },
+                    success: function (response) {
+                        if (response.msg == "success") {
+                            console.log(response.resultFile);
+                            // alert("上傳照片的內容： " + response.resultFile);
+                            $('#imageDetected').attr("src", 'http://localhost:3000/img/' + response.resultFile);
+                            $('#pyResult0').attr("value", response.pythonResults);
+                            // $('#pyResult1').text(response.gender);
+                            // $('#pyResult2').text(response.race);
+                            // $('#pyResult3').text(response.emotion);
+                        }
+                    },
+                    error: function () {
+                        alert('server error');
+                    }
+                });
+            });
+        });
+
+
+    </script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"
+        integrity="sha256-hK55yYjZp3vXqUhowkWYVaoavcWSYRR6fE8sgHqyt5A=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-javascript.min.js"
+        integrity="sha256-tLhIAW/D2zypVjXCB31wyVYzDzNzxbGmymQKKTT7P8c=" crossorigin="anonymous"></script> -->
+
+    <!-- <script src="https://danielmg.org/assets/demo/uploader/js/jquery.dm-uploader.min.js?v=v10"></script>
+    <script src="https://danielmg.org/assets/demo/uploader/js/ui-main.js?v=v10"></script>
+
+
+    <script src="https://danielmg.org/assets/demo/uploader/js/ui-single.js?v=v10"></script>
+
+    <script src="https://danielmg.org/assets/demo/uploader/js/configs/single-upload.js?v=v10"></script> -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Captcha Recognition Demo</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+        integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="http://localhost:3000/css/bootstrapv4.min.css">
+
+
+    <!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-coy.min.css"
+            integrity="sha256-OPRaIzpiEHvHfgydlnA/89k9d55T02hawuzgWygdLls=" crossorigin="anonymous"> -->
+        
+    <link rel="stylesheet" href="http://localhost:3000/themes/prism-coy.min.css">
+        
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="http://localhost:3000/css/font-awesome.min.css">
+
+
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="https://danielmg.org/assets/demo/uploader/css/jquery.dm-uploader.min.css?v=v10" rel="stylesheet"> -->
+    <link href="http://localhost:3000/css/jquery.dm-uploader.min.css" rel="stylesheet">
+    <!-- <link href="https://danielmg.org/assets/demo/uploader/css/main.css?v=v10" rel="stylesheet"> -->
+    <link href="http://localhost:3000/css/main.css" rel="stylesheet">
+    <link rel="icon" sizes="512x512" href="http://localhost:3000/assets/image/icon.png">
+
+    <!-- <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script> -->
+    <!-- <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-638054-11"></script> -->
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-5">
+        <a class="navbar-brand" href="http://localhost:3000">AIEN18 第一組期末專題</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#demosNavbarCollapse"
+            aria-controls="demosNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="demosNavbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:3000">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://localhost:3000/Home/Demo_uploadOrigin">Demo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:3000/Home/Demo_refSource">Reference source</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:3000/Home/Demo_members">Members</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" class="container pt-2">
+
+        <h1>
+            Captcha Recognition
+            <a href="" class="btn btn-info btn-lg float-right d-none d-lg-block" role="button" target="_blank">
+                <i class="fa fa-github">程式碼連結</i>
+            </a>
+        </h1>
+        <p class="lead mb-4">
+            An OCR model for reading captcha
+        </p>
+
+        <ul class="nav nav-tabs">
+
+            <li class="nav-item">
+                <a class="nav-link " href="http://localhost:3000/Home/Demo_uploadOrigin">Origin model & training dataset</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " href="http://localhost:3000/Home/Demo_uploadNew">Origin model & <strong>new</strong> dataset</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="http://localhost:3000/Home/Demo_webCrawler">Web Crawler</a>
+            </li>
+
+        </ul>
+
+        <div class="mb-3 dm-uploader" id="drag-and-drop-zone" style="border-color: transparent;">
+            <div class="form-row">
+                <div class="col-md-10 col-sm-12">
+                    <div class="from-group mb-2">
+                        <label>Web Crawler Demo</label>
+                    </div>
+                    <!-- <div> -->
+                        <!-- <div role="button" class="btn btn-success mr-2" style="width: 140px; height: 40px;"> -->
+                            <!-- <i class="fa fa-folder-o fa-fw"></i> Browse Files -->
+                            <!-- <input id="cwgvClick" type="submit" value="天下文化" class="btn btn-success mr-2"> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <p></p> -->
+                    <div>
+                        <div>
+                            <div role="button" class="btn btn-info" style="width: 140px; height: 40px;display: flex; align-items: center; justify-content: center;">
+                                <!-- <i class="fa fa-folder-o fa-fw"></i> Browse Files -->
+                                <!-- <input type="text" name="udn123" value="udn234" style="color: transparent;width: 10px; height: 20px;"> -->
+                                <input id="udnClick" type="submit" value="聯合知識庫" class="btn btn-info" style="text-align: center;">
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div>
+                            <div role="button" class="btn btn-warning"  style="width: 140px; height: 40px;display: flex; align-items: center; justify-content: center;">
+                                <!-- <i class="fa fa-folder-o fa-fw"></i> Browse Files -->
+                                <!-- <input type="text" name="udn123" value="udn234" style="color: transparent;width: 10px; height: 20px;"> -->
+                                <input id="sanminClick" type="submit" value="三民網路書店" class="btn btn-warning" style="text-align: center;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </main> <!-- /container -->
+
+    <footer class="text-center">
+        <p> AIEN18 <a href="http://localhost:3000">Home</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#cwgvClick').click(function () {
+                cwgvCraw = $('#cwgvClick').val();
+                $.ajax({
+                    method: "post",
+                    url: "/Demo_webCrawler",
+                    data: {"cwgvVal" : cwgvCraw},
+                    dataType: "JSON",
+                    success: function (response) {
+                        if (response.msg == "success") {
+                            // console.log(response.resultFile);
+                            alert("Crawler completed");
+                        }
+                    },
+                    error: function () {
+                        alert('server error');
+                    }
+                });
+            });
+        });
+        $(document).ready(function () {
+            $('#udnClick').click(function () {
+                udnCraw = $('#udnClick').val();
+                $.ajax({
+                    method: "post",
+                    url: "/index/Home/Demo_webCrawler",
+                    data: {"udnVal" : udnCraw},
+                    dataType: "JSON",
+                    success: function (response) {
+                        if (response.msg == "success") {
+                            // console.log(response.resultFile);
+                            alert("Crawler completed");
+                        }
+                    },
+                    error: function () {
+                        alert('server error');
+                    }
+                });
+                return("udn");
+            });
+        });
+        $(document).ready(function () {
+            $('#sanminClick').click(function () {
+                sanminCraw = $('#sanminClick').val();
+                $.ajax({
+                    method: "post",
+                    url: "/index/Home/Demo_webCrawler",
+                    data: {"sanminVal" : sanminCraw},
+                    dataType: "JSON",
+                    success: function (response) {
+                        if (response.msg == "success") {
+                            // console.log(response.resultFile);
+                            alert("Crawler completed");
+                        }
+                    },
+                    error: function () {
+                        alert('server error');
+                    }
+                });
+            });
+        });
+
+
+    </script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"
+        integrity="sha256-hK55yYjZp3vXqUhowkWYVaoavcWSYRR6fE8sgHqyt5A=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-javascript.min.js"
+        integrity="sha256-tLhIAW/D2zypVjXCB31wyVYzDzNzxbGmymQKKTT7P8c=" crossorigin="anonymous"></script> -->
+
+    <!-- <script src="https://danielmg.org/assets/demo/uploader/js/jquery.dm-uploader.min.js?v=v10"></script>
+    <script src="https://danielmg.org/assets/demo/uploader/js/ui-main.js?v=v10"></script>
+
+
+    <script src="https://danielmg.org/assets/demo/uploader/js/ui-single.js?v=v10"></script>
+
+    <script src="https://danielmg.org/assets/demo/uploader/js/configs/single-upload.js?v=v10"></script> -->
+
+
+</body>
+
+</html>
